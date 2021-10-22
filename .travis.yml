@@ -4,6 +4,9 @@ sudo: required
 services:
   - docker
 
+before_install:
+  - echo "$DOCKER_ID" | docker login -u "$DOCKER_PASSWORD" --password-stdin
+
 deploy:
   provider: elasticbeanstalk
   region: 'us-east-1'
