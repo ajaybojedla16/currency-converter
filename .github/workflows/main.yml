@@ -1,0 +1,30 @@
+name: Deployment of Currency converter
+
+on:
+  push:
+    branches:
+      - master
+      
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+    - name: checkout latest code
+    - uses: actions/checkout@master
+      
+    - name: create package
+    - run: zip -r deploy.zip . '*.git*'
+      
+    - name: Deploy to EBS
+      uses: einaregilsson/beanstalk-deploy@master
+      with:
+        aws_access_key: ${{secrets.AWS_ACCESS_KEY}}
+        aws_scecret_key: ${{secrets.AWS_SECRET_KEY}}
+        application_name: currency-converter
+        environemnt_name: Currencyconverter-env
+        version_label: V1.0
+        region: us-east-1
+        deployment_package: deploy.zip
+      
+      
