@@ -3,14 +3,14 @@ services:
   currency-exchange:
     image: ajaybojedla/currency-exchange-service
     ports:
-      - "80:8000"
+      - "8000:8000"
     networks:
       - currency-compose-network
 
   currency-conversion:
     image: ajaybojedla/currency-conversion-service
     ports:
-      - "81:8100"
+      - "80:8100"
     environment:
       CURRENCY_EXCHANGE_SERVICE_HOST: http://currency-exchange
     depends_on:
