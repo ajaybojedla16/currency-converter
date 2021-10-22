@@ -22,7 +22,7 @@ jobs:
         aws_access_key: ${{secrets.AWS_ACCESS_KEY}}
         aws_secret_key: ${{secrets.AWS_SECRET_KEY}}
         application_name: currency-converter
-        environemnt_name: Currencyconverter-env
+        environment_name: Currencyconverter-env
         version_label: V1.0
         region: us-east-1
         deployment_package: deploy.zip
