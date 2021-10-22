@@ -11,10 +11,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: checkout latest code
-    - uses: actions/checkout@master
+      uses: actions/checkout@master
       
     - name: create package
-    - run: zip -r deploy.zip . '*.git*'
+      run: zip -r deploy.zip . '*.git*'
       
     - name: Deploy to EBS
       uses: einaregilsson/beanstalk-deploy@master
