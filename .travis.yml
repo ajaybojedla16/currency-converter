@@ -5,7 +5,7 @@ services:
   - docker
 
 before_install:
-  - echo "$DOCKER_ID" | docker login -u "$DOCKER_PASSWORD" --password-stdin
+  - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
 
 deploy:
   provider: elasticbeanstalk
